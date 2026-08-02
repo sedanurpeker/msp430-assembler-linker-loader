@@ -1,107 +1,107 @@
-# MSP430 Assembler, Linker & Loader
+# 🔧 MSP430 Assembler, Linker & Loader
 
-Bu proje, MSP430 mimarisi için geliştirilmiş bir **assembler**, **linker** ve **loader** sisteminden oluşmaktadır. Python diliyle yazılmış olan bu sistem, assembly dilindeki kodları makine koduna çevirir, çoklu ELF dosyalarını birleştirerek tek bir çalıştırılabilir dosya oluşturur ve sanal bellek üzerinde programın yerleşimini simüle eder.
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Tkinter](https://img.shields.io/badge/GUI-Tkinter-informational)](https://docs.python.org/3/library/tkinter.html)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
----
+A systems programming project that implements an **assembler**, **linker**, and **loader** for the **MSP430** microcontroller architecture.
+Written in Python, the system translates MSP430 assembly code into machine code, merges multiple ELF object files into a single executable, and simulates how the program is laid out in virtual memory.
 
-## Proje Yapısı
+## 📑 Table of Contents
+
+- [Project Structure](#-project-structure)
+- [Components](#-components)
+- [Reports](#-reports)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Authors](#-authors)
+- [Notes](#-notes)
+
+## 📂 Project Structure
 
 ```
- Proje Klasörü
-├── generate_test_elfs/        # Test için otomatik .elf dosyası üreticisi
-├── linked_output.elf          # Linker çıktısı (birleştirilmiş ELF dosyası)
-├── linker.py                  # Linker modülü (ELF birleştirme)
-├── loader.py                  # Loader modülü (belleğe yerleştirme, çalıştırma)
-├── main.asm                   # Ana assembly kod dosyası
-├── main.elf                   # Ana .elf nesne dosyası
-├── memory_map.png             # Bellek haritası görselleştirmesi
-├── output.elf                 # Assembler çıktısı (tek ELF dosyası)
-├── Rapor_1.pdf                # Proje raporu - Assembler tasarımı
-├── Rapor_2.pdf                # Proje raporu - Derleyici mimarisi ve GUI
-├── Rapor_3.pdf                # Proje raporu - Linker, loader ve sanal bellek
-├── test4.py                   # Ek test dosyası
-├── utils.asm                  # Yardımcı assembly modülü
-├── utils.elf                  # utils.asm'den üretilmiş .elf dosyası
+msp430-assembler-linker-loader/
+├── generate_test_elfs/     → Automatic .elf file generator for testing
+├── linked_output.elf       → Linker output (merged ELF file)
+├── linker.py                → Linker module (ELF merging)
+├── loader.py                → Loader module (memory placement, execution)
+├── main.asm                 → Main assembly source file
+├── main.elf                 → Main .elf object file
+├── memory_map.png           → Memory map visualization
+├── output.elf                → Assembler output (single ELF file)
+├── report-1-assembler-design.pdf     → Assembler design report
+├── report-2-compiler-architecture.pdf → Compiler architecture & GUI report
+├── report-3-linker-loader-memory.pdf  → Linker, loader & virtual memory report
+├── test4.py                  → Additional test file
+├── utils.asm                 → Helper assembly module
+└── utils.elf                 → .elf file generated from utils.asm
 ```
 
----
-
-## Proje Bileşenleri
+## 🧩 Components
 
 ### Assembler (Python + Tkinter GUI)
-- MSP430 assembly kodlarını iki geçişli derleyiciyle makine koduna çevirir.
-- `main.asm` gibi dosyaları işleyerek `.elf` formatında nesne dosyaları üretir.
-- GUI üzerinden kod yazma, sembol tablosu ve makine kodlarını görme imkanı sunar.
+- Translates MSP430 assembly code into machine code using a two-pass compiler.
+- Processes files like `main.asm` and produces object files in `.elf` format.
+- The GUI allows writing code and inspecting the symbol table and generated machine code.
 
 ### Linker (`linker.py`)
-- Birden fazla `.elf` dosyasını (örneğin `main.elf` ve `utils.elf`) alır.
-- Sembolleri çözümler, relocation işlemlerini yapar.
-- Sonuç olarak `linked_output.elf` dosyasını üretir.
+- Takes multiple `.elf` files (e.g. `main.elf` and `utils.elf`) as input.
+- Resolves symbols and performs relocation.
+- Produces the final `linked_output.elf` file.
 
 ### Loader (`loader.py`)
-- Sanal bellek modeli (Flash, RAM, SFR, vs.) üzerinde ELF dosyasını belleğe yerleştirir.
-- Relocation ve segment yerleşimi işlemlerini gerçekleştirir.
-- Gerçek çalıştırma adreslerini belirleyerek programı simüle eder.
+- Places the ELF file into a virtual memory model (Flash, RAM, SFR, etc.).
+- Performs relocation and segment placement.
+- Determines real execution addresses to simulate running the program.
 
----
+## 📄 Reports
 
-## Görseller
+- `report-1-assembler-design.pdf` — Assembler design, opcodes, and addressing modes
+- `report-2-compiler-architecture.pdf` — Compiler internals, GUI structure, assembly directives
+- `report-3-linker-loader-memory.pdf` — Linker, loader, virtual memory structure, ELF processing
 
-### Bellek Haritası
-![Memory Map](memory_map.png)
-
----
-
-## Raporlar
-
-- **Rapor_1.pdf** – Assembler tasarımı, opcode ve adresleme modları
-- **Rapor_2.pdf** – Derleyici detayları, GUI yapısı, assembly direktifleri
-- **Rapor_3.pdf** – Linker, loader, sanal bellek yapısı, ELF işleme
-
----
-
-## Kullanılan Teknolojiler
+## 🛠 Tech Stack
 
 - Python 3.x
 - Tkinter (GUI)
 - Custom assembler architecture
-- ELF benzeri çıktı formatı
-- Sanal bellek simülasyonu
-- .macro, .equ, .ref, .global gibi assembler direktif desteği
+- ELF-like output format
+- Virtual memory simulation
+- Support for assembler directives such as `.macro`, `.equ`, `.ref`, `.global`
 
----
+## 🚀 Getting Started
 
-## Başlatma Talimatı
+1. Make sure Python 3 is installed.
 
-1. Python 3 yüklü olduğundan emin olun.
-2. GUI'yi başlatmak için:
-   ```bash
-   python assembler_gui.py
-   ```
-3. ELF dosyalarını birleştirmek için:
-   ```bash
-   python linker.py
-   ```
-4. Sanal bellekte ELF’yi yüklemek ve çalıştırmak için:
-   ```bash
-   python loader.py
-   ```
+2. Launch the GUI:
 
----
+```bash
+python assembler_gui.py
+```
 
-## Geliştirici Ekibi
+3. Merge ELF files:
 
-- Adem COŞKUN   
-- Emine KAYIT
-- Sedanur PEKER 
-- Zeliha POLAT
+```bash
+python linker.py
+```
 
----
+4. Load and run the ELF file in virtual memory:
 
-## Notlar
+```bash
+python loader.py
+```
 
-- Proje eğitim amacıyla geliştirilmiştir.
-- Gerçek MSP430 donanımı yerine sanal bellek ortamında çalışmaktadır.
-- GUI üzerinden sembol ve literal tablosu da görsel olarak sunulmaktadır.
+## 👥 Authors
 
----
+This project was developed as a team effort by:
+
+- **Adem Coşkun**
+- **Emine Kayıt**
+- **Sedanur Peker**
+- **Zeliha Polat**
+
+## 📝 Notes
+
+- This project was developed for educational purposes.
+- It runs in a simulated virtual memory environment rather than on real MSP430 hardware.
+- The symbol and literal tables are also displayed visually through the GUI.
