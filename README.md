@@ -1,4 +1,4 @@
-# 🔧 MSP430 Assembler, Linker & Loader
+#  MSP430 Assembler, Linker & Loader
 
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Tkinter](https://img.shields.io/badge/GUI-Tkinter-informational)](https://docs.python.org/3/library/tkinter.html)
@@ -7,7 +7,7 @@
 A systems programming project that implements an **assembler**, **linker**, and **loader** for the **MSP430** microcontroller architecture.
 Written in Python, the system translates MSP430 assembly code into machine code, merges multiple ELF object files into a single executable, and simulates how the program is laid out in virtual memory.
 
-## 📑 Table of Contents
+##  Table of Contents
 
 - [Project Structure](#-project-structure)
 - [Components](#-components)
@@ -17,7 +17,7 @@ Written in Python, the system translates MSP430 assembly code into machine code,
 - [Authors](#-authors)
 - [Notes](#-notes)
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 msp430-assembler-linker-loader/
@@ -37,7 +37,7 @@ msp430-assembler-linker-loader/
 └── utils.elf                 → .elf file generated from utils.asm
 ```
 
-## 🧩 Components
+##  Components
 
 ### Assembler (Python + Tkinter GUI)
 - Translates MSP430 assembly code into machine code using a two-pass compiler.
@@ -54,13 +54,13 @@ msp430-assembler-linker-loader/
 - Performs relocation and segment placement.
 - Determines real execution addresses to simulate running the program.
 
-## 📄 Reports
+##  Reports
 
 - `report-1-assembler-design.pdf` — Assembler design, opcodes, and addressing modes
 - `report-2-compiler-architecture.pdf` — Compiler internals, GUI structure, assembly directives
 - `report-3-linker-loader-memory.pdf` — Linker, loader, virtual memory structure, ELF processing
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - Python 3.x
 - Tkinter (GUI)
@@ -69,7 +69,7 @@ msp430-assembler-linker-loader/
 - Virtual memory simulation
 - Support for assembler directives such as `.macro`, `.equ`, `.ref`, `.global`
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. Make sure Python 3 is installed.
 
@@ -91,7 +91,7 @@ python linker.py
 python loader.py
 ```
 
-## 👥 Authors
+##  Authors
 
 This project was developed as a team effort by:
 
@@ -100,7 +100,7 @@ This project was developed as a team effort by:
 - **Sedanur Peker**
 - **Zeliha Polat**
 
-## 📝 Notes
+##  Notes
 
 - This project was developed for educational purposes.
 - It runs in a simulated virtual memory environment rather than on real MSP430 hardware.
